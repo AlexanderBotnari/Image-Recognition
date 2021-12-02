@@ -32,7 +32,7 @@
 const uppy = Uppy.Core({debug: true, autoProceed: false})
 .use(Uppy.Dashboard, { trigger: '#uppyModalOpener' })
 .use(Uppy.Webcam, {target: Uppy.Dashboard})
-.use(Uppy.XHRUpload, { endpoint: 'http://localhost:8080/images/upload' , formData: true
+.use(Uppy.XHRUpload, { endpoint: 'images/upload' , formData: true
 	, fieldName: 'image'})
 
 uppy.on('success', (fileCount) => {
@@ -42,7 +42,7 @@ console.log(`${fileCount} files uploaded`)
 
 <script type="text/javascript">
         document.getElementById("redirectButton").onclick = function () {
-            location.href = "http://localhost:8080/images/get";
+            location.href = "images/get";
         };
     </script>
     
