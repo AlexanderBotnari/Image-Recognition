@@ -1,11 +1,16 @@
+package students.example.ImageRecognition.http;
 
-	@Controller
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.view.RedirectView;
+
+@Controller
+public class RedirectController {
+
     @RequestMapping("/")
-    public class RedirectController {
-        
-        @GetMapping("/redirectWithRedirectPrefix")
-        public ModelAndView redirectWithUsingRedirectPrefix(ModelMap model) {
-            model.addAttribute("attribute", "redirectWithRedirectPrefix");
-            return new ModelAndView("redirect:/images/page", model);
-        }
+    public RedirectView localRedirect() {
+        RedirectView redirectView = new RedirectView();
+        redirectView.setUrl("images/page");
+        return redirectView;
     }
+}
