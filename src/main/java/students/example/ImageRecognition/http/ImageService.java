@@ -24,13 +24,14 @@ import ai.djl.translate.TranslateException;
 @Service
 public class ImageService {
 
-	// logger binding
+    // logger binding
     private static final Logger logger = LoggerFactory.getLogger(ImageService.class);
-       
-    private ImageService(){ }
-   
+
+    private ImageService() {
+    }
+
     public DetectedObjects predict(Path imageFile) throws IOException, ModelException, TranslateException {
-        Image img =  ImageFactory.getInstance().fromFile(imageFile);
+        Image img = ImageFactory.getInstance().fromFile(imageFile);
         logger.info("Engine: {}", Engine.getInstance().getEngineName());
         String backbone;
         if ("TensorFlow".equals(Engine.getInstance().getEngineName())) {
@@ -38,15 +39,14 @@ public class ImageService {
         } else {
             backbone = "resnet50";
         }
-        
+
         // settings builder for the model
-        Criteria<Image, DetectedObjects> criteria =
-                Criteria.builder()
-                        .optApplication(Application.CV.OBJECT_DETECTION)
-                        .setTypes(Image.class, DetectedObjects.class)
-                        .optFilter("backbone", backbone)
-                        .optProgress(new ProgressBar())
-                        .build();
+        Criteria<Image, DetectedObjects> criteria = Criteria.builder()
+                .optApplication(Application.CV.OBJECT_DETECTION)
+                .setTypes(Image.class, DetectedObjects.class)
+                .optFilter("backbone", backbone)
+                .optProgress(new ProgressBar())
+                .build();
 
         try (ZooModel<Image, DetectedObjects> model = criteria.loadModel()) {
             try (Predictor<Image, DetectedObjects> predictor = model.newPredictor()) {
@@ -55,12 +55,12 @@ public class ImageService {
                 return detection;
             }
         }
-        
+
     }
 
     private static void saveBoundingBoxImage(Image img, DetectedObjects detection)
             throws IOException {
-        Path outputDir = Paths.get("src/main/resources/images/");
+        Path outputDir = Paths.get("src/main/resources/images");
         Files.createDirectories(outputDir);
         logger.info("Detected objects: {}", detection.items());
         // Make image copy with alpha channel because original image was jpg
