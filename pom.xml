@@ -53,50 +53,60 @@
 
 
 		<!-- PYTORCH -->
- 		<!-- <dependency>
+ 		<dependency>
 		    <groupId>ai.djl.pytorch</groupId>
 		    <artifactId>pytorch-model-zoo</artifactId>
 		    <version>0.12.0</version>
 		</dependency> 
+		
 		<dependency>
-		    <groupId>ai.djl.pytorch</groupId>
-		    <artifactId>pytorch-engine</artifactId>
-		    <version>0.12.0</version>
-		    <scope>runtime</scope>
-		</dependency> 
-		    <dependency>
+			<groupId>ai.djl.pytorch</groupId>
+			<artifactId>pytorch-engine</artifactId>
+			<version>0.12.0</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>ai.djl.pytorch</groupId>
+			<artifactId>pytorch-native-auto</artifactId>
+			<version>1.8.1</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		 <!-- <dependency>
 		    <groupId>ai.djl.pytorch</groupId>
 		    <artifactId>pytorch-native-cpu</artifactId>
 		    <classifier>osx-x86_64</classifier>
 		    <scope>runtime</scope>
 		    <version>1.8.1</version>
 		</dependency> 
-		
-		<dependency>
+		 -->
+		<!-- <dependency>
 			<groupId>ai.djl.pytorch</groupId>
 			<artifactId>pytorch-native-cpu</artifactId>
 			<classifier>win-x86_64</classifier>
 			<scope>runtime</scope>
 			<version>1.9.1</version>
 		</dependency>
-
-		<dependency>
-			<groupId>net.java.dev.jna</groupId>
-			<artifactId>jna</artifactId>
-			<version>5.3.0</version>
-		</dependency> -->
+		 -->
 	<!-- 	MXNet -->
 	<!-- <dependency>
     <groupId>ai.djl.mxnet</groupId>
     <artifactId>mxnet-engine</artifactId>
     <version>0.12.0</version>
     <scope>runtime</scope>
-</dependency>
+</dependency> -->
 	
-	<dependency>
+	<!-- <dependency>
     <groupId>ai.djl.mxnet</groupId>
     <artifactId>mxnet-native-mkl</artifactId>
     <classifier>osx-x86_64</classifier>
+    <version>1.8.0</version>
+    <scope>runtime</scope>
+</dependency> -->
+<!-- <dependency>
+    <groupId>ai.djl.mxnet</groupId>
+    <artifactId>mxnet-native-auto</artifactId>
     <version>1.8.0</version>
     <scope>runtime</scope>
 </dependency>
@@ -108,7 +118,7 @@
 </dependency> -->
 
 	    <!-- TENSORFLOW -->
-	 	<dependency>
+	 	<!-- <dependency>
 		    <groupId>ai.djl.tensorflow</groupId>
 		    <artifactId>tensorflow-api</artifactId>
 		    <version>0.12.0</version>
@@ -132,7 +142,7 @@
 		    <version>0.12.0</version>
 		</dependency>  
 
-	
+	 -->
 		<!-- LOGGER -->
 		<dependency>
 		    <groupId>org.slf4j</groupId>
