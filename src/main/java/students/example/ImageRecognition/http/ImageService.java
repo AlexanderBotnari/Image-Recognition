@@ -67,9 +67,9 @@ public class ImageService {
         Image newImage = img.duplicate(Image.Type.TYPE_INT_ARGB);
         newImage.drawBoundingBoxes(detection);
 
-        Path imagePath = outputDir.resolve("detected.png");
+        Path imagePath = outputDir.resolve("detected.PNG");
         // OpenJDK can't save jpg with alpha channel
-        newImage.save(Files.newOutputStream(imagePath), "png");
+        newImage.save(Files.newOutputStream(imagePath), "PNG");
         logger.info("Detected objects image has been saved in: {}", imagePath);
     }
 

@@ -44,7 +44,7 @@ public class ImageController {
 
 	@GetMapping(value = "/get", produces = MediaType.IMAGE_PNG_VALUE)
 	public synchronized @ResponseBody byte[] getImageWithMediaType() throws IOException {
-		InputStream in = new ClassPathResource("/detected.png").getInputStream();
+		InputStream in = new ClassPathResource("/detected.PNG").getInputStream();
 		byte[] data = toByteArray(in);
 
 		return data;
