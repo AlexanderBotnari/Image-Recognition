@@ -60,16 +60,16 @@ public class ImageService {
 
     private static void saveBoundingBoxImage(Image img, DetectedObjects detection)
             throws IOException {
-        Path outputDir = Paths.get("src/main/resources");
+        Path outputDir = Paths.get("src/main/resources/static/images/");
         Files.createDirectories(outputDir);
         logger.info("Detected objects: {}", detection.items());
         // Make image copy with alpha channel because original image was jpg
         Image newImage = img.duplicate(Image.Type.TYPE_INT_ARGB);
         newImage.drawBoundingBoxes(detection);
 
-        Path imagePath = outputDir.resolve("detected.PNG");
+        Path imagePath = outputDir.resolve("detected.png");
         // OpenJDK can't save jpg with alpha channel
-        newImage.save(Files.newOutputStream(imagePath), "PNG");
+        newImage.save(Files.newOutputStream(imagePath), "png");
         logger.info("Detected objects image has been saved in: {}", imagePath);
     }
 

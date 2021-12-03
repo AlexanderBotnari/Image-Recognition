@@ -44,7 +44,7 @@ public class ImageController {
 
 	@GetMapping(value = "/get", produces = MediaType.IMAGE_PNG_VALUE)
 	public synchronized @ResponseBody byte[] getImageWithMediaType() throws IOException {
-		InputStream in = new ClassPathResource("/detected.PNG").getInputStream();
+		InputStream in = new ClassPathResource("static/images/detected.png").getInputStream();
 		byte[] data = toByteArray(in);
 
 		return data;
@@ -55,7 +55,7 @@ public class ImageController {
 	public DetectedObjects uploadImage(@RequestParam("image") MultipartFile file)
 			throws IOException, ModelException, TranslateException {
 
-		String uploadDirectoryName = "src/main/resources";
+		String uploadDirectoryName = "src/main/resources/static/uploads/";
 		Path fileName = Paths.get(file.getOriginalFilename());
 
 		Path uploadDirPath = Paths.get(uploadDirectoryName);
