@@ -60,7 +60,7 @@ public class ImageService {
 
     private static void saveBoundingBoxImage(Image img, DetectedObjects detection)
             throws IOException {
-        Path outputDir = Paths.get("src/main/resources/static/images/");
+        Path outputDir = Paths.get("processed/images/");
         Files.createDirectories(outputDir);
         logger.info("Detected objects: {}", detection.items());
         // Make image copy with alpha channel because original image was jpg
